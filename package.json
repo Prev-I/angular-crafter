@@ -2,11 +2,11 @@
   "name": "workspace-crafter",
   "version": "0.0.1",
   "license": "Apache-2.0",
-  "author": { 
-    "name" : "Claudio Previtali",
-    "email" : "claudio.previtali.88@gmail.com",
-    "url" : "https://github.com/Prev-I/"
-    },
+  "author": {
+    "name": "Claudio Previtali",
+    "email": "claudio.previtali.88@gmail.com",
+    "url": "https://github.com/Prev-I/"
+  },
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
@@ -51,6 +51,7 @@
     "@ngrx/store": "6.1.2",
     "@nrwl/nx": "7.4.0",
     "core-js": "^2.5.4",
+    "hammerjs": "^2.0.8",
     "rxjs": "~6.3.3",
     "zone.js": "^0.8.26"
   },
