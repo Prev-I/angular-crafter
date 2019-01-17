@@ -1,7 +1,12 @@
 {
   "name": "workspace-crafter",
-  "version": "0.0.0",
-  "license": "MIT",
+  "version": "0.0.1",
+  "license": "Apache-2.0",
+  "author": { 
+    "name" : "Claudio Previtali",
+    "email" : "claudio.previtali.88@gmail.com",
+    "url" : "https://github.com/Prev-I/"
+    },
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
