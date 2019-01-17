@@ -6,13 +6,9 @@ import { NxModule } from '@nrwl/nx';
 import { RouterModule } from '@angular/router';
 
 @NgModule({
-  declarations: [AppComponent],
-  imports: [
-    BrowserModule,
-    NxModule.forRoot(),
-    RouterModule.forRoot([], { initialNavigation: 'enabled' })
-  ],
-  providers: [],
-  bootstrap: [AppComponent]
+	declarations: [ AppComponent ],
+	imports: [ BrowserModule, NxModule.forRoot(), RouterModule.forRoot([], { initialNavigation: 'enabled' }) ],
+	providers: [],
+	bootstrap: [ AppComponent ]
 })
 export class AppModule {}
