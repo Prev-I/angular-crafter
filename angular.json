@@ -1,0 +1,204 @@
+{
+  "$schema": "./node_modules/@angular/cli/lib/config/schema.json",
+  "version": 1,
+  "newProjectRoot": "",
+  "projects": {
+    "angular-crafter": {
+      "root": "apps/angular-crafter/",
+      "sourceRoot": "apps/angular-crafter/src",
+      "projectType": "application",
+      "prefix": "workspace-crafter",
+      "schematics": {
+        "@nrwl/schematics:component": {
+          "styleext": "scss"
+        }
+      },
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-angular:browser",
+          "options": {
+            "outputPath": "dist/apps/angular-crafter",
+            "index": "apps/angular-crafter/src/index.html",
+            "main": "apps/angular-crafter/src/main.ts",
+            "polyfills": "apps/angular-crafter/src/polyfills.ts",
+            "tsConfig": "apps/angular-crafter/tsconfig.app.json",
+            "assets": [
+              "apps/angular-crafter/src/favicon.ico",
+              "apps/angular-crafter/src/assets"
+            ],
+            "styles": [
+              "apps/angular-crafter/src/styles.scss"
+            ],
+            "scripts": []
+          },
+          "configurations": {
+            "production": {
+              "fileReplacements": [
+                {
+                  "replace": "apps/angular-crafter/src/environments/environment.ts",
+                  "with": "apps/angular-crafter/src/environments/environment.prod.ts"
+                }
+              ],
+              "optimization": true,
+              "outputHashing": "all",
+              "sourceMap": false,
+              "extractCss": true,
+              "namedChunks": false,
+              "aot": true,
+              "extractLicenses": true,
+              "vendorChunk": false,
+              "buildOptimizer": true,
+              "budgets": [
+                {
+                  "type": "initial",
+                  "maximumWarning": "2mb",
+                  "maximumError": "5mb"
+                }
+              ]
+            }
+          }
+        },
+        "serve": {
+          "builder": "@angular-devkit/build-angular:dev-server",
+          "options": {
+            "browserTarget": "angular-crafter:build"
+          },
+          "configurations": {
+            "production": {
+              "browserTarget": "angular-crafter:build:production"
+            }
+          }
+        },
+        "extract-i18n": {
+          "builder": "@angular-devkit/build-angular:extract-i18n",
+          "options": {
+            "browserTarget": "angular-crafter:build"
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "apps/angular-crafter/tsconfig.app.json",
+              "apps/angular-crafter/tsconfig.spec.json"
+            ],
+            "exclude": [
+              "**/node_modules/**"
+            ]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/builders:jest",
+          "options": {
+            "jestConfig": "apps/angular-crafter/jest.config.js",
+            "tsConfig": "apps/angular-crafter/tsconfig.spec.json",
+            "setupFile": "apps/angular-crafter/src/test-setup.ts"
+          }
+        }
+      }
+    },
+    "angular-crafter-e2e": {
+      "root": "apps/angular-crafter-e2e",
+      "projectType": "application",
+      "prefix": "",
+      "architect": {
+        "e2e": {
+          "builder": "@nrwl/builders:cypress",
+          "options": {
+            "cypressConfig": "apps/angular-crafter-e2e/cypress.json",
+            "tsConfig": "apps/angular-crafter-e2e/tsconfig.e2e.json",
+            "devServerTarget": "angular-crafter:serve"
+          },
+          "configurations": {
+            "production": {
+              "devServerTarget": "angular-crafter:serve:production"
+            }
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": "apps/angular-crafter-e2e/tsconfig.e2e.json",
+            "exclude": [
+              "**/node_modules/**"
+            ]
+          }
+        }
+      }
+    },
+    "server-crafter": {
+      "root": "apps/server-crafter",
+      "sourceRoot": "apps/server-crafter/src",
+      "projectType": "application",
+      "prefix": "server-crafter",
+      "schematics": {},
+      "architect": {
+        "build": {
+          "builder": "@nrwl/builders:node-build",
+          "options": {
+            "outputPath": "dist/apps/server-crafter",
+            "main": "apps/server-crafter/src/main.ts",
+            "tsConfig": "apps/server-crafter/tsconfig.app.json",
+            "assets": [
+              "apps/server-crafter/src/assets"
+            ]
+          },
+          "configurations": {
+            "production": {
+              "optimization": true,
+              "extractLicenses": true,
+              "fileReplacements": [
+                {
+                  "replace": "apps/server-crafter/src/environments/environment.ts",
+                  "with": "apps/server-crafter/src/environments/environment.prod.ts"
+                }
+              ]
+            }
+          }
+        },
+        "serve": {
+          "builder": "@nrwl/builders:node-execute",
+          "options": {
+            "buildTarget": "server-crafter:build"
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "apps/server-crafter/tsconfig.app.json",
+              "apps/server-crafter/tsconfig.spec.json"
+            ],
+            "exclude": [
+              "**/node_modules/**"
+            ]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/builders:jest",
+          "options": {
+            "jestConfig": "apps/server-crafter/jest.config.js",
+            "tsConfig": "apps/server-crafter/tsconfig.spec.json"
+          }
+        }
+      }
+    }
+  },
+  "cli": {
+    "warnings": {
+      "typescriptMismatch": false,
+      "versionMismatch": false
+    },
+    "defaultCollection": "@nrwl/schematics",
+    "packageManager": "npm"
+  },
+  "schematics": {
+    "@nrwl/schematics:application": {
+      "style": "scss"
+    },
+    "@nrwl/schematics:library": {
+      "style": "scss"
+    }
+  },
+  "defaultProject": "angular-crafter"
+}
