@@ -8,7 +8,12 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 @NgModule({
 	declarations: [ AppComponent ],
-	imports: [ BrowserModule, NxModule.forRoot(), RouterModule.forRoot([], { initialNavigation: 'enabled' }), BrowserAnimationsModule ],
+	imports: [
+		BrowserModule,
+		NxModule.forRoot(),
+		RouterModule.forRoot([], { initialNavigation: 'enabled' }),
+		BrowserAnimationsModule
+	],
 	providers: [],
 	bootstrap: [ AppComponent ]
 })
