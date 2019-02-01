@@ -1,10 +1,16 @@
 <div style="text-align:center">
   <h1>Welcome to {{ title }}!</h1>
-  <img
+  <!-- <img
     width="300"
     src="https://raw.githubusercontent.com/nrwl/nx/master/nx-logo.png"
-  />
+  /> -->
 </div>
+
+<mat-form-field>
+  <input matInput [matDatepicker]="picker" placeholder="Choose a date">
+  <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+  <mat-datepicker #picker></mat-datepicker>
+</mat-form-field>
 
 <h2>This is an Angular CLI app built with Nrwl Nx!</h2>
 
