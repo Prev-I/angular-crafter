@@ -6,5 +6,6 @@ import { Component } from '@angular/core';
 	styleUrls: [ './app.component.scss' ]
 })
 export class AppComponent {
-	title = 'angular-crafter';
+  title = 'angular-crafter';
+  startDate = '2018-01-01';
 }
